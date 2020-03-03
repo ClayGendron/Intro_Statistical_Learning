@@ -18,3 +18,4 @@ income1 <- read.csv(here::here("Data/Income1.csv"))
 income2 <- read.csv(here::here("Data/Income2.csv"))
 genes <- read.csv(here::here("Data/Ch10Ex11.csv"), header = F)
 
+
