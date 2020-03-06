@@ -71,8 +71,8 @@ vif(m_lm_mod2) # coliniearity of varibales in model
 
 i_lm_mod <- lm(medv ~
                  lstat * age,
-               data = Boston)
-
+               data = Boston
+            )
 summary(i_lm_mod)
 
 # non-linear transformations of the predictors
@@ -80,14 +80,14 @@ summary(i_lm_mod)
 nl_lm_mod <- lm(medv ~
                   lstat +
                   I(lstat ^ 2),
-                data = Boston)
-
+                data = Boston
+            )
 summary(nl_lm_mod)
 
 anova(lm_mod,nl_lm_mod)
 
 poly_lm_mod <- lm(medv ~
                     poly(lstat,5),
-                  data = Boston)
-
+                  data = Boston
+            )
 summary(poly_lm_mod)
