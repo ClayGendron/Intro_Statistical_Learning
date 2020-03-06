@@ -23,6 +23,7 @@ genes <- read.csv(here::here("Data/Ch10Ex11.csv"), header = F)
 
 # code
 
+# linear regression
 # change variable data type
 fix(Boston)
 names(Boston)
@@ -49,7 +50,7 @@ plot(predict(lm_mod), rstudent(lm_mod))
 plot(hatvalues(lm_mod))
 which.max(hatvalues(lm_mod))
 
-# multiple lm model
+# multiple linear regression
 
 m_lm_mod <- lm(medv~
                  lstat +
@@ -65,3 +66,28 @@ m_lm_mod2 <- lm(medv ~
 summary(m_lm_mod2)
 
 vif(m_lm_mod2) # coliniearity of varibales in model
+
+# interatction terms
+
+i_lm_mod <- lm(medv ~
+                 lstat * age,
+               data = Boston)
+
+summary(i_lm_mod)
+
+# non-linear transformations of the predictors
+
+nl_lm_mod <- lm(medv ~
+                  lstat +
+                  I(lstat ^ 2),
+                data = Boston)
+
+summary(nl_lm_mod)
+
+anova(lm_mod,nl_lm_mod)
+
+poly_lm_mod <- lm(medv ~
+                    poly(lstat,5),
+                  data = Boston)
+
+summary(poly_lm_mod)
