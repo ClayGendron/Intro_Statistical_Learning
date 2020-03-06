@@ -7,6 +7,9 @@ library(DBI)        # data base stuff
 library(rpart)      # tree model
 library(rpart.plot) # tree model
 library(wrapr)      # formula builder
+library(MASS)       # data
+library(ISLR)       # data
+library(car)        # vif
 
 # data pull
 advertise <- read.csv(here::here("Data/Advertising.csv"))
